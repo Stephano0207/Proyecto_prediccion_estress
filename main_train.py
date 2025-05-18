@@ -12,8 +12,14 @@ df = pd.read_csv(file_path)
 df.head()
 
 # 1. Selección de características
-features = ['Extracurricular_Hours_Per_Day', 'Sleep_Hours_Per_Day',
-            'Social_Hours_Per_Day', 'Physical_Activity_Hours_Per_Day', 'GPA']
+features = [
+    'Study_Hours_Per_Day',
+    'Extracurricular_Hours_Per_Day',
+    'Sleep_Hours_Per_Day',
+    'Social_Hours_Per_Day',
+    'Physical_Activity_Hours_Per_Day',
+    'GPA'
+]
 X = df[features]
 
 # 2. Codificar la variable objetivo
@@ -38,3 +44,7 @@ joblib.dump(model, 'stress_level_model.pkl')
 
 # Guardar también el codificador de etiquetas (LabelEncoder), por si lo necesitas al predecir
 joblib.dump(le, 'label_encoder.pkl')
+
+print("Model training complete. Files saved:")
+print("- stress_level_model.pkl")
+print("- label_encoder.pkl")
