@@ -1,15 +1,9 @@
 import google.generativeai as genai
-import os
-from dotenv import load_dotenv
-from google.generativeai import list_models
+import pandas as pd
 
-load_dotenv()
-genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
+file_path = "student_lifestyle_dataset.csv"
+df = pd.read_csv(file_path)
 
-model = genai.GenerativeModel('gemini-1.5-flash-latest')  # Más rápido y con mejor cuota
+# Mostrar las primeras filas del dataset
+df.head()
 
-try:
-    response = model.generate_content("Hola en menos de 5 palabras")
-    print(response.text)
-except Exception as e:
-    print(f"Error: {str(e)}")

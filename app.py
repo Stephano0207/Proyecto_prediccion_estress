@@ -22,6 +22,7 @@ model_gemini = genai.GenerativeModel('gemini-1.5-flash-latest')  # Más rápido 
 model = joblib.load('stress_level_model.pkl')
 le = joblib.load('label_encoder.pkl')
 
+
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
